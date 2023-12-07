@@ -1,3 +1,4 @@
+use super::Solution;
 use fancy_regex::Regex;
 
 #[derive(Debug)]
@@ -100,10 +101,16 @@ fn second_star(input: &str) -> u32 {
         .sum()
 }
 
-pub fn day2(input: String) {
-    println!(
-        "1st day - First star: {}, Second star: {}",
-        first_star(&input),
-        second_star(&input),
-    );
+pub struct Day2 {}
+
+impl Solution for Day2 {
+    fn solve() {
+        let input = Self::get_day_input(2);
+
+        println!(
+            "2nd day - First star: {}, Second star: {}",
+            first_star(&input),
+            second_star(&input)
+        );
+    }
 }

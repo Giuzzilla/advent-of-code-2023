@@ -1,3 +1,4 @@
+use super::Solution;
 use fancy_regex::Regex;
 
 fn sum_first_and_last(iter: Vec<[u32; 2]>) -> u32 {
@@ -71,10 +72,16 @@ fn second_star(input: &str) -> u32 {
     sum_first_and_last(lines_of_digits)
 }
 
-pub fn day1(input: String) {
-    println!(
-        "1st day - First star: {}, Second star: {}",
-        first_star(&input),
-        second_star(&input)
-    );
+pub struct Day1 {}
+
+impl Solution for Day1 {
+    fn solve() {
+        let input = Self::get_day_input(1);
+
+        println!(
+            "1st day - First star: {}, Second star: {}",
+            first_star(&input),
+            second_star(&input)
+        );
+    }
 }
