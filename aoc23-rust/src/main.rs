@@ -18,7 +18,7 @@ fn get_cookie() -> String {
         .lines()
         .for_each(|line| {
             if line.starts_with("COOKIE") {
-                cookie = line.split("=").nth(1).unwrap().to_string();
+                cookie = line.split('=').nth(1).unwrap().to_string();
             }
         });
     cookie.trim().to_string()

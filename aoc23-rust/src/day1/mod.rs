@@ -3,11 +3,7 @@ use fancy_regex::Regex;
 
 fn sum_first_and_last(iter: Vec<[u32; 2]>) -> u32 {
     iter.iter()
-        .map(|[digit1, digit2]| {
-            format!("{}{}", digit1.to_string(), digit2.to_string())
-                .parse::<u32>()
-                .unwrap()
-        })
+        .map(|[digit1, digit2]| format!("{}{}", digit1, digit2).parse::<u32>().unwrap())
         .sum()
 }
 

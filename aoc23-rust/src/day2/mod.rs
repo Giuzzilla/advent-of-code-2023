@@ -10,11 +10,11 @@ enum Extraction {
 
 fn get_extractions(line: &str) -> (u32, Vec<Extraction>) {
     let game_id = line
-        .split(" ")
+        .split(' ')
         .nth(1)
         .unwrap()
-        .split(":")
-        .nth(0)
+        .split(':')
+        .next()
         .unwrap()
         .parse::<u32>()
         .unwrap();

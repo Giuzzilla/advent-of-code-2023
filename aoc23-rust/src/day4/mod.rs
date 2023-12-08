@@ -20,10 +20,10 @@ fn get_extractions(input: &str) -> Vec<Extraction> {
                 .split(" | ")
                 .map(|cards_str| {
                     cards_str
-                        .split(" ")
+                        .split(' ')
                         .filter_map(|card_str| {
-                            let stripped_str = card_str.replace(" ", "");
-                            if stripped_str != "" {
+                            let stripped_str = card_str.replace(' ', "");
+                            if !stripped_str.is_empty() {
                                 Some(stripped_str.parse::<u32>().unwrap())
                             } else {
                                 None
@@ -34,7 +34,7 @@ fn get_extractions(input: &str) -> Vec<Extraction> {
                 .collect::<Vec<HashSet<u32>>>();
 
             let [winning_cards, my_cards] = TryInto::<[_; 2]>::try_into(sets_of_cards)
-                .expect(format!("More than two blocks of cards found in line {}", line).as_str());
+                .unwrap_or_else(|_| panic!("More than two blocks of cards found in line {}", line));
             Extraction {
                 winning_cards,
                 my_cards,

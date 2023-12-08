@@ -39,11 +39,11 @@ fn get_grid(input: &str) -> Grid {
                         });
 
                         vec![number_element; number.end() - number.start()]
-                    } else if let Some(_) = groups.get(2) {
+                    } else if groups.get(2).is_some() {
                         vec![Element::Empty]
                     } else {
                         vec![Element::Symbol(
-                            groups.get(3).unwrap().as_str().chars().nth(0).unwrap(),
+                            groups.get(3).unwrap().as_str().chars().next().unwrap(),
                         )]
                     }
                 })
@@ -97,13 +97,9 @@ fn first_star(input: &str) -> u32 {
     for i in 0..grid.len() {
         for j in 0..grid[i].len() {
             if let Element::Number(num) = grid[i][j] {
-                let has_symbols_nearby =
-                    get_neighbours(&grid, i, j)
-                        .iter()
-                        .any(|neighbour| match neighbour {
-                            Element::Symbol(_) => true,
-                            _ => false,
-                        });
+                let has_symbols_nearby = get_neighbours(&grid, i, j)
+                    .iter()
+                    .any(|neighbour| matches!(neighbour, Element::Symbol(_)));
                 if has_symbols_nearby {
                     numbers_to_sum.insert(num);
                 }
