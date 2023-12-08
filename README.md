@@ -7,7 +7,7 @@ In this repository you'll find my personal solutions for [AoC 2023](https://adve
 | 1   | ⭐⭐ |       |
 | 2   | ⭐⭐ |       |
 | 3   | ⭐⭐ |       |
-| 4   |      |       |
+| 4   | ⭐⭐ |       |
 | 5   |      |       |
 | 6   |      |       |
 | 7   |      |       |
