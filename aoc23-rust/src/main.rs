@@ -4,10 +4,12 @@ use std::{fs, io};
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 use day1::Day1;
 use day2::Day2;
 use day3::Day3;
+use day4::Day4;
 
 fn get_cookie() -> String {
     let mut cookie = String::new();
@@ -34,6 +36,7 @@ fn main() {
             1 => Day1::solve(),
             2 => Day2::solve(),
             3 => Day3::solve(),
+            4 => Day4::solve(),
             _ => println!("Day {} not implemented yet", day),
         },
         _ => println!("Invalid day, must be an integer between 1 and 25"),
